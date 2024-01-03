@@ -70,7 +70,7 @@ You can also append extra parameters there:
 
 .. warning::
 
-    Until `ticket #1316`_ is addressed, this solution **does not support** multiple incoming ``Forwarded`` headers. For example, if the request has::
+    On nginx versions before v1.23.0, this solution **does not support** multiple incoming ``Forwarded`` headers. For example, if the request has::
 
         Forwarded: for=1.2.3.4
         Forwarded: for=5.6.7.8
@@ -80,8 +80,6 @@ You can also append extra parameters there:
         Forwarded: for=1.2.3.4, for=9.10.11.12
 
     This is in contrast to ``$proxy_add_x_forwarded_for``, which **does** correctly join multiple incoming headers.
-
-    .. _ticket #1316: https://trac.nginx.org/nginx/ticket/1316
 
 
 Dealing with invalid headers
